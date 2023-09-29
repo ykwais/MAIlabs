@@ -3,7 +3,6 @@
 #include <string.h>
 #include <math.h>
 #include <stdbool.h>
-#include <limits.h>
 #include "funcs.h"
 #include "enums.h"
 
