@@ -1,14 +1,7 @@
-//
-// Created by fedor on 26.09.2023.
-//
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <math.h>
-#include <stdbool.h>
-#include "funcs.h"
+
 #include "enums.h"
+#include "functions.c"
 
 
 int main(int argc, char** argv){
