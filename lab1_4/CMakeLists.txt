@@ -5,6 +5,6 @@ set(CMAKE_C_STANDARD 23)
 
 add_library(MyLib functions.c)
 
-add_executable(laboratory1_4 main.c enum.h)
+add_executable(laboratory1_4 main.c  enum.h)
 
 target_link_libraries(laboratory1_4 MyLib)
