@@ -1,11 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
-#include <stdbool.h>
-#include "funcs.h"
-#include "enums.h"
 
+#include "enums.h"
+#include "functions.c"
 
 
 
