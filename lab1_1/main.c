@@ -1,20 +1,15 @@
-//
-// Created by fedor on 24.09.2023.
-//
+
 
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
-#include "functions.h"
+
 #include "enums.h"
-
-
-
-
+#include "funcs.c"
 
 int main(int argc, char** argv){
-    int length;
+    int length = 0;
     unsigned long long factorial_result;
     switch(analysis(argc, argv)){
         case isc_invalid_parametr:
@@ -34,7 +29,7 @@ int main(int argc, char** argv){
             break;
         case isc_h:
             dividers(argv[2]);
-            //printf("!!! %c", argv[2][1]);
+
             break;
         case isc_p:
             switch (is_comlete(argv[2])) {
@@ -43,6 +38,9 @@ int main(int argc, char** argv){
                     break;
                 case psc_zero:
                     printf("You've entered 0, please repeat.");
+                    break;
+                case psc_one:
+                    printf("You've entered 1");
                     break;
                 case psc_complicated:
                     printf("You've entered the complicated number.");
@@ -78,7 +76,8 @@ int main(int argc, char** argv){
         case isc_a:
             switch(is_summ(argv[2])){
                 case asc_normal:
-                    summ_way(argv[2]);
+                    //summ_way(argv[2]);
+                    printf("%lld", summ_way(argv[2]));
                     break;
                 case asc_negative:
                     printf("negative number, please repeat.");
@@ -100,6 +99,4 @@ int main(int argc, char** argv){
             break;
 
     }
-
-
 }
