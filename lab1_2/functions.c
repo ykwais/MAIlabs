@@ -1,12 +1,36 @@
-//
-// Created by fedor on 30.09.2023.
-//
 
-#ifndef LABORATORY1_2_FUNCS_H
-#define LABORATORY1_2_FUNCS_H
+
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <stdbool.h>
+#include "enums.h"
 
 #define NUM  50000
 #define NUM_2  5200
+
+bool is_number(char* str){
+    char* result ;
+    long number = strtol(str, &result, 10);
+
+    if(*result != '\0'){
+        return false;
+    }
+
+    return true;
+}
+
+enum input_status_code analysis(int argc, char** argv){
+    if(argc == 2 && (!strcmp(argv[1], "-help") || !strcmp(argv[1],"/help") )){
+        return isc_need_help;
+    }
+    else if(argc == 2 && is_number(argv[1]) && argv[1][0] >= 48 && argv[1][0] < 56 && argv[1][1] == '\0' ){
+        return isc_normal;
+    }
+    else{
+        return isc_invalid_parametr;
+    }
+}
 
 long double fast_pow (long double x, long long y) {
     long double result = 1.0L;
@@ -20,16 +44,7 @@ long double fast_pow (long double x, long long y) {
     return result;
 }
 
-bool is_number(char* str){
-    char* result ;
-    long number = strtol(str, &result, 10);
 
-    if(*result != '\0'){
-        return false;
-    }
-
-    return true;
-}
 
 
 
@@ -308,8 +323,8 @@ long double limit_g(char* str){//0,57721566490153286060
 }
 
 long double tailor_g(char* str){
-    long long koefs[8000];
-    for(int i = 0; i < 8000; i++){
+    long long koefs[100];
+    for(int i = 0; i < 100; i++){
         koefs[i] = i*i;
     }
 
@@ -428,8 +443,3 @@ long double dich_last(char* str){
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-#endif //LABORATORY1_2_FUNCS_H
