@@ -83,15 +83,16 @@ long double third_summ(long double eps, long double x) {
     return answer;
 }
 
+
 long double fourth_summ(long double eps, long double x) {
 
     long long n = 1, k = 0, z = 1;
-    long double answer = 1.0L;
+    long double answer = 0.0L;
     long double previous_drob = 0.0L;
     long double next_drob = 1.0L;
     while (fabsl(next_drob - previous_drob) > eps) {
         previous_drob = next_drob;
-        next_drob = previous_drob * (-x * x * (n + k) / (n + z));
+        next_drob = previous_drob * (-1.0L*x * x * (2*n -1 ) / (2*n));
         answer += next_drob;
         n++;
         k++;
@@ -99,5 +100,7 @@ long double fourth_summ(long double eps, long double x) {
     }
     return answer;
 }
+
+
 
 
