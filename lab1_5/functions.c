@@ -86,7 +86,7 @@ long double third_summ(long double eps, long double x) {
 
 long double fourth_summ(long double eps, long double x) {
 
-    long long n = 1, k = 0, z = 1;
+    long long n = 1;
     long double answer = 0.0L;
     long double previous_drob = 0.0L;
     long double next_drob = 1.0L;
@@ -95,8 +95,6 @@ long double fourth_summ(long double eps, long double x) {
         next_drob = previous_drob * (-1.0L*x * x * (2*n -1 ) / (2*n));
         answer += next_drob;
         n++;
-        k++;
-        z++;
     }
     return answer;
 }
