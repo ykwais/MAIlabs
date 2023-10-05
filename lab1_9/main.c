@@ -42,6 +42,16 @@ int main(int argc, char **argv) {
     int *b_array = (int *) malloc(sizeof(int) * length_of_b);
     int *c_array = (int *) malloc(sizeof(int) * length_of_a);
 
+    if(a_array == NULL || b_array == NULL || c_array == NULL){
+        printf("Error!");
+        free(a_array);
+        free(b_array);
+        free(c_array);
+        a_array = NULL; b_array = NULL; c_array =NULL;
+        return 0;
+    }
+
+
     filling_the_array(-1000, 1000, a_array, length_of_a);
     filling_the_array(-1000, 1000, b_array, length_of_b);
 
