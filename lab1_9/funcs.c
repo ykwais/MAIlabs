@@ -4,24 +4,23 @@
 #include <stdbool.h>
 #include "enum.h"
 
-bool is_number(char* str){
-    char* result ;
+bool is_number(char *str) {
+    char *result;
     long number = strtol(str, &result, 10);
 
-    if(*result != '\0'){
+    if (*result != '\0') {
         return false;
     }
 
     return true;
 }
 
-enum input_status_code analysis(int argc, char** argv){
-    if(argc != 3){
+enum input_status_code analysis(int argc, char **argv) {
+    if (argc != 3) {
         return isc_bad_input;
-    }else if(!is_number(argv[1]) || !is_number(argv[2])){
+    } else if (!is_number(argv[1]) || !is_number(argv[2])) {
         return isc_not_a_number;
-    }
-    else{
+    } else {
         return isc_well;
     }
 }
@@ -97,29 +96,21 @@ void fast_sort_Lomuto_begin(int *mass, int length) {
     fast_sort_Lomuto(mass, 0, length - 1);
 }
 
+
 int bin_search_in_array(int *mass, int length, int required) {
     int left = 0;
     int right = length - 1;
     int middle = 0;
-    while (left <= right) {
+    while (left < right-1) {
         middle = (left + right) / 2;
-        if (mass[middle] == required) {
-            return mass[middle];
-        }
-        if (mass[middle] > required) {
-            if (middle > 0 && required > mass[middle - 1]) {
-                return (required - mass[middle - 1] >= mass[middle] - required) ? mass[middle] : mass[middle - 1];
-            }
-            right = middle - 1;
-        } else {
-            if (middle < length - 1 && required < mass[middle + 1]) {
-                return (required - mass[middle] >= mass[middle + 1] - required) ? mass[middle + 1] : mass[middle];
-            }
-            left = middle + 1;
+
+        if(mass[middle] > required) {
+            right = middle;
+        } else  {
+            left = middle;
         }
     }
-
-
+    return (abs(mass[left] - required) < abs(mass[right] - required)) ?  mass[left] :  mass[right];
 }
 
 int c_value(int *mass_b, int length_b, int required) {
