@@ -19,4 +19,18 @@ enum input_status_code {
 
 typedef enum input_status_code input;
 
+enum memory_troubles{
+    mt_well,
+    mt_memory_problem
+};
+
+typedef enum memory_troubles memory;
+
+enum valid_value_mask{
+    vvm_valid,
+    vvm_invalid
+};
+
+typedef enum valid_value_mask valid_mask;
+
 #endif //LABORATORY_OSI_1_4_ENUMS_H
